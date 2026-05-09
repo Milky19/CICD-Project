@@ -74,8 +74,7 @@ pipeline {
             steps {
                 deploy adapters: [tomcat9(credentialsId: '18d203e6-c5bb-4662-9ad5-415464fbd21f', path: '', url: 'http://ec2-44-204-235-249.compute-1.amazonaws.com:8080/')], contextPath: null, war: '**/*.war'
             }
-        }
-        
+        } 
         stage ("QA notify") {
             steps {
                 slackSend channel: 'learn-devops-60-days,qa-testing-team', message: 'Hi QA team - We have deployed code into QA env. please start functional testing in QA env..'
